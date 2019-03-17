@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+    .zoom{
+        transition: transform 1s;
+    }
+    .zoom:hover{
+        transform: scale(1.2);
+    }
+{% endblock style %}
+
+{% block content %}
+<section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-3 is-5">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ form.name }}
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-info">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-3 is-5">
+                    {% for city_weather in weather_data %}
+                    <div class="box zoom">
+                        <article class="media">
+                            <div class="media-left" style="padding-right: 70px">
+                                <figure>
+                                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image" height="64px" width="64px">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title" style="font-size: 30px">{{ city_weather.city }}</span>
+                                        <br>
+                                        <span class="subtitle">{{ city_weather.temperature }}° C</span>
+                                        <br> {{ city_weather.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+

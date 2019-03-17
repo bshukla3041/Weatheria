@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weatheria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+
+    <style>
+        body{
+            color: #ffffff;
+            background-color: #2a3a4a;
+        }
+        {% block style %}
+        {% endblock style %}
+    </style>
+</head>
+<body>
+    <div class="container" style="text-align: center; padding-top: 30px">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-4 mr-auto ml-auto" style="padding-top: 15px; padding-bottom: 15px;">
+                <div>
+                    <img src="http://res.publicdomainfiles.com/pdf_view/60/13534624826984.png" alt="Clouds" height="80px" width="80px">
+                    <h1 class="display-3" style="font-family: 'Pacifico', cursive;">Weatheria</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="text-align: center">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
