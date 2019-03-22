@@ -7,4 +7,4 @@ class CityForm(forms.ModelForm):
         model = City
         labels = {'name': ''}
         fields = ['name']
-        widgets = {'name': forms.TextInput(attrs={'class': 'input form-css rounded-pill', 'placeholder': 'City name'})}
+        widgets = {'name': forms.TextInput(attrs={'class': 'input form-control rounded-pill', 'placeholder': 'Check what\'s the weather like for your city...'})}
