@@ -6,6 +6,7 @@ from django.views import View
 from .models import City
 from .forms import CityForm
 
+API_KEY = '0a136f3cef869764f8d63741dbac7973'
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -13,7 +14,7 @@ class HomeView(View):
             Get your own API Key by signing up on OpenMapWeather
             URL - https://home.openweathermap.org/users/sign_up
         """
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0a136f3cef869764f8d63741dbac7973'
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + API_KEY
 
         form = CityForm()
 
@@ -39,7 +40,7 @@ class HomeView(View):
         return render(request, 'weather/weather.html', context)
 
     def post(self, request, *args, **kwargs):
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0a136f3cef869764f8d63741dbac7973'
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + API_KEY
 
         form = CityForm(request.POST)
         form.save()
