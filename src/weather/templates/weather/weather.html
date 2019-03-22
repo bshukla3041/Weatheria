@@ -1,65 +1,68 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block style %}
-    .zoom{
-        transition: transform 1s;
+{% block styles %}
+    .btn{
+        background-image: linear-gradient(45deg, #39afdc, #67e203);
+        color: #ffffff;
     }
-    .zoom:hover{
-        transform: scale(1.2);
+    .form-css{
+        padding-top: 40px;
+        padding-bottom: 20px;
     }
-{% endblock style %}
+    .weather-card{
+        /*background-image: linear-gradient(#39afdc, #ffffff);*/
+        background-image: linear-gradient(#ffffff, #bdbdbd);
+        color: #000000;
+        font-family: 'Permanent Marker', cursive;
+        padding: 5px 5px 5px 5px;
+        word-wrap:  break-word;
+        transition: transform .4s;
+    }
+    .weather-card:hover{
+        transform: scale(1.1);
+    }
+    .box{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+{% endblock styles %}
 
 {% block content %}
-<section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-3 is-5">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                {{ form.name }}
-                            </div>
-                            <div class="control">
-                                <button type="submit" class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
+
+    <div class="container">
+        <div class="row well justify-content-center text-center form-css">
+            <div class="col-md-6 mr-auto ml-auto">
+                <div class="form-group">
+                    <form method="POST" action=".">{% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn rounded-pill" style="margin-top: 10px;"><strong>ADD CITY</strong></button>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-3 is-5">
-                    {% for city_weather in weather_data %}
-                    <div class="box zoom">
-                        <article class="media">
-                            <div class="media-left" style="padding-right: 70px">
-                                <figure>
-                                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image" height="64px" width="64px">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title" style="font-size: 30px">{{ city_weather.city }}</span>
-                                        <br>
-                                        <span class="subtitle">{{ city_weather.temperature }}° C</span>
-                                        <br> <em>{{ city_weather.description }}</em>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
+    </div>
+
+    {% for city_weather in weather_data %}
+        <div class="container box">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6 col-sm-12 col-md-9 col-lg-6">
+                    <div class="row text-center justify-content-center align-items-center weather-card rounded-pill">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image" height="60px" width="60px" style="margin: 10px 10px 10px 10px;">
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <h3>{{ city_weather.temperature }} °C</h3>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <h4>{{ city_weather.city }}</h4>
+                            <em>{{ city_weather.description }}</em>
+                        </div>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
-    </section>
+    {% endfor %}
+
 {% endblock content %}
 

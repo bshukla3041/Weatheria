@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Weatheria</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <style>
-        body{
-            color: #ffffff;
-            background-color: #2a3a4a;
+        html{
+            min-height: 100%;
+            margin: 0;
         }
-        {% block style %}
-        {% endblock style %}
+        body{
+            background-image: linear-gradient(45deg, #463d56, #387b76);
+            color: #ffffff;
+        }
+        .logo{
+            margin: auto;
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+        {% block styles %}
+        {% endblock styles %}
     </style>
 </head>
 <body>
-    <div class="container" style="text-align: center; padding-top: 30px">
-        <div class="row">
-            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-4 mr-auto ml-auto" style="padding-top: 15px; padding-bottom: 15px;">
-                <div>
-                    <img src="http://res.publicdomainfiles.com/pdf_view/60/13534624826984.png" alt="Clouds" height="80px" width="80px">
-                    <h1 class="display-3" style="font-family: 'Pacifico', cursive;">Weatheria</h1>
-                </div>
+    <div class="container logo">
+        <div class="row well-lg text-center justify-content-center align-items-center" >
+            <div class="col-12">
+                <img src="http://res.publicdomainfiles.com/pdf_view/60/13534624826984.png" alt="Clouds" height="80px" width="80px">
+            </div>
+            <div class="col-12">
+                <h1 class="lead" style="font-family: 'Pacifico', cursive; font-size: 60px">Weatheria</h1>
             </div>
         </div>
     </div>
-    <div class="container" style="text-align: center">
+    <div>
         {% block content %}
         {% endblock content %}
     </div>
