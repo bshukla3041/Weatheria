@@ -6,7 +6,7 @@ from django.views import View
 from .models import City
 from .forms import CityForm
 
-API_KEY = '0a136f3cef869764f8d63741dbac7973'
+API_KEY = 'YOUR_API_KEY'
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
