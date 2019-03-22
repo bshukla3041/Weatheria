@@ -13,7 +13,7 @@ class HomeView(View):
             Get your own API Key by signing up on OpenMapWeather
             URL - https://home.openweathermap.org/users/sign_up
         """
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=YOUR-API-KEY'
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0a136f3cef869764f8d63741dbac7973'
 
         form = CityForm()
 
@@ -33,12 +33,14 @@ class HomeView(View):
 
         context = {
             'weather_data': weather_data,
-            'form': form,
+            'form': form
         }
 
         return render(request, 'weather/weather.html', context)
 
     def post(self, request, *args, **kwargs):
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0a136f3cef869764f8d63741dbac7973'
+
         form = CityForm(request.POST)
         form.save()
 
