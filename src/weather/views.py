@@ -6,14 +6,15 @@ from django.views import View
 from .models import City
 from .forms import CityForm
 
+"""
+    Get your own API Key by signing up on OpenMapWeather
+    URL - https://home.openweathermap.org/users/sign_up
+"""
+
 API_KEY = 'YOUR_API_KEY'
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
-        """
-            Get your own API Key by signing up on OpenMapWeather
-            URL - https://home.openweathermap.org/users/sign_up
-        """
         url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + API_KEY
 
         form = CityForm()
