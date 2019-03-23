@@ -13,7 +13,7 @@ A simple web application that provides weather information of queried city using
   ```
     cd src
   ```
-* Get your own OpenMapWeather API Key and update API_KEY variable in views.py file in 'shorten' module
+* Get your own OpenMapWeather API Key and update API_KEY variable in views.py file in 'weather' app
 * Run the local server from project root directory
   ```
     python3 manage.py runserver
