@@ -1,2 +1,2 @@
 # Weatheria
-A simple weather app built on django using OpenMapWeather API
+A simple web application that provides weather information of queried city using OpenMapWeather API.
